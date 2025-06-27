@@ -1,4 +1,4 @@
-# 🍕 Pizza Detection YOLO Training
+# Pizza Detection YOLO Training
 
 Train YOLO models to detect pizzas using the interactive Jupyter notebook with `.env` configuration.
 
