@@ -1,6 +1,6 @@
 # Pizza Counter System
 
-An advanced computer vision system for counting pizzas in video streams using YOLO object detection and centroid tracking algorithms.
+An advanced computer vision system for counting pizzas in video streams using YOLO object detection and centroid tracking algorithms.The current iteration of the system is highly dependent on its environmental setting, which requires an unobstructed camera view of the pizza preparation station and cooking area.
 
 ## Overview
 
