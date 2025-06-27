@@ -1,0 +1,19 @@
+# Model Configuration
+MODEL_CONFIG:
+  # Detection confidence threshold (0.0 to 1.0)
+  confidence_threshold: 0.35
+
+# Centroid Tracker parameters configuration
+TRACKING_CONFIG:
+
+  max_disappeared: 30      # Maximum frames object can disappear
+  max_distance: 50         # Maximum distance for object association
+
+# Counting Configuration  
+COUNTING_CONFIG:
+  # Minimum track length before counting
+  min_track_length: 5
+  
+  # Default counting region (as fraction of frame size)
+  # Format: [x1_ratio, y1_ratio, x2_ratio, y2_ratio]
+  default_region: [0.25, 0.25, 0.75, 0.75]

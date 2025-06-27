@@ -1,0 +1,60 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/*.log
+
+# Output files
+output/
+
+# Input files (uncomment if you don't want to track input videos)
+input/*
+
+# Model files (uncomment if models are too large for git)
+# model_data/*.pt
+
+# Docker
+.dockerignore
+
+# Temporary files
+*.tmp
+*.temp

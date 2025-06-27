@@ -1,0 +1,14 @@
+{
+  "zones": [
+    {
+      "type": "rectangle",
+      "coordinates": [
+        1400,
+        12,
+        1918,
+        1084
+      ],
+      "name": "zone_1"
+    }
+  ]
+}

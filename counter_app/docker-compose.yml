@@ -1,0 +1,14 @@
+services:
+  pizza-counter:
+    build: .
+    container_name: pizza-counter-app
+    volumes:
+      - ./input:/app/input:ro
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - .:/app/host_config:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OPENCV_LOG_LEVEL=ERROR
+    profiles:
+      - manual
