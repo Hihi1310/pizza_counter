@@ -1,11 +1,11 @@
 # Pizza Counter
 
-Count pizzas in videos using YOLO detection and CentroidTracker object tracking.
+Count pizzas in videos using YOLO detection and CentroidTracker object tracking with a zonning logic.
 
 ## Quick Start
 
 1. **Setup**: Place your video in the `input/` folder
-2. **Run**: Execute `run.bat process` (Windows) 
+2. **Run**: Execute `run.bat process` (Windows) or `./run.sh process` (Linux/macOS)
 3. **Results**: Check the `output/` folder for results and annotated video
 
 ## Helper Commands
@@ -17,6 +17,14 @@ run.bat build     # Build Docker image
 run.bat process   # Process videos in input/
 run.bat zone      # Set up counting zones
 run.bat clean     # Clean output files
+
+# Linux/macOS
+./run.sh setup    # Create directories
+./run.sh build    # Build Docker image
+./run.sh process  # Process videos in input/
+./run.sh batch    # Process all videos in input/
+./run.sh zone     # Set up counting zones
+./run.sh clean    # Clean output files
 
 # Direct Docker usage
 docker-compose run --rm pizza-counter python app.py --video /app/input/video.mp4 --save-video --confidence 0.35
@@ -31,7 +39,7 @@ docker-compose run --rm pizza-counter python app.py --video /app/input/video.mp4
 
 ## Visual Zoning Guide
 
-Setting up proper counting zones is crucial for accurate pizza counting, especially in baking areas where pizzas enter and exit the counting region. Use the interactive zone setup tool (`run.bat zone`) where you can **drag and drop to draw polygon zones** directly on your video frame - simply click and drag to create zone boundaries, then right-click to complete the zone. Here's a visual comparison:
+Setting up proper counting zones is crucial for accurate pizza counting, especially in baking areas where pizzas enter and exit the counting region. Use the interactive zone setup tool (`run.bat zone` on Windows or `./run.sh zone` on Linux/macOS) where you can **drag and drop to draw polygon zones** directly on your video frame - simply click and drag to create zone boundaries, then right-click to complete the zone. Here's a visual comparison:
 
 ### Without Baking Area Zoning 
 ![No Zoning](md_resource/no_zoning.png)
@@ -43,7 +51,7 @@ Setting up proper counting zones is crucial for accurate pizza counting, especia
 
 ### Zone Setup Tips
 
-1. **Run Zone Setup**: Use `run.bat zone` or `python zone_setup.py` to interactively define your counting zones
+1. **Run Zone Setup**: Use `run.bat zone` (Windows) or `./run.sh zone` (Linux/macOS) to interactively define your counting zones
 2. **Baking Area Focus**: Draw zones around specific areas where you want to count pizzas (e.g., oven entrance, conveyor belt section)
 3. **Avoid Overlaps**: Ensure zones don't overlap with areas where pizzas might linger or move back and forth
 4. **Test and Adjust**: Process a sample video and review the results to fine-tune your zones
@@ -101,6 +109,7 @@ counter_app/
 ├── config.yaml         # User configuration
 ├── zone_setup.py       # Interactive zone setup utility
 ├── run.bat             # Windows helper script
+├── run.sh              # Linux/macOS helper script
 ├── Dockerfile          # Container configuration
 ├── docker-compose.yml  # Docker services
 ├── input/              # Place videos here
@@ -125,7 +134,7 @@ counter_app/
 - **No detections**: Lower confidence threshold in config.yaml or use `--confidence 0.2`
 - **Too many false positives**: Increase confidence threshold to 0.5-0.6
 - **Missing objects**: Adjust tracker `max_distance` parameter
-- **Docker issues**: Run `run.bat build` to rebuild container
+- **Docker issues**: Run `run.bat build` (Windows) or `./run.sh build` (Linux/macOS) to rebuild container
 - **Performance**: Use smaller videos or adjust frame processing
 
 ## Model Requirements
@@ -133,3 +142,7 @@ counter_app/
 - YOLO format weights (`.pt` files)
 - Trained for pizza detection (class 0 should be "pizza")
 - Compatible with ultralytics YOLO (YOLOv8, YOLOv11, etc.)
+
+## Limitation - Future update 
+- Update to a model with better accuracy
+- Connect system to a live camera
